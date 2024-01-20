@@ -9,10 +9,10 @@ WORKDIR ${APPATH}
 COPY ./* ${APPATH}
 
 RUN chmod +x ./* && \
-    ./preset.sh
+    ./build.sh
 
-ENTRYPOINT ["./start.sh"]
+ENTRYPOINT ["./start-up.sh"]
 
 EXPOSE 80
 
-CMD ["./start.sh"]
+CMD ["./start-up.sh"]
