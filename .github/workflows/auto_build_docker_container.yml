@@ -2,7 +2,7 @@ name: 自动构建docker镜像
 
 on:
   schedule:
-    - cron: "21 19 * * 0"
+    - cron: "21 36 * * 0"
   watch:
     types: started
   workflow_dispatch:
@@ -16,6 +16,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Change TZ
+        run: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
       - name: Check Out Repo 
         uses: actions/checkout@v4
@@ -45,7 +48,7 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=raw,value=latest
-            {{tz='Asia/Shanghai' date 'YYYY/MM/DD/hh/mm/ss'}}
+            {{date 'YYYY/MM/DD/hh/mm/ss'}}
 #            type=schedule,pattern={{date 'YYYY/MM/DD'}}
 #            type=semver,pattern={{version}}
 #            type=semver,pattern=$()
