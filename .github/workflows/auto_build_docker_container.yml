@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Get Respository Name
-        run: echo '${{ github.repository }}' || echo "IMAGE_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> "$GITHUB_ENV"
+        run: echo "IMAGE_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> "$GITHUB_ENV"
 
       - name: Docker meta
         id: meta
