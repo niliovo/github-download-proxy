@@ -17,9 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Change TZ
-        run: sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
       - name: Check Out Repo 
         uses: actions/checkout@v4
 
