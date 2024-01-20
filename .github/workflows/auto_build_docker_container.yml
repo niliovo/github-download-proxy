@@ -45,7 +45,7 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=raw,value=latest
-            {{date 'YYYY/MM/DD/HH/mm/ss'}}
+            {{TZ='Asia/Shanghai' date 'YYYY/MM/DD/HH/mm/ss'}}
 #            type=schedule,pattern={{date 'YYYY/MM/DD'}}
 #            type=semver,pattern={{version}}
 #            type=semver,pattern=$()
